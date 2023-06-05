@@ -1,0 +1,75 @@
+﻿@model IEnumerable<YtBookStore.Models.Domain.TakeBook>
+@{
+
+}
+ <div style="margin-left:-100px; margin-right:-100px">
+    <div class="row" >
+        <div class="col-md-12" style="padding-top:2%;padding-bottom:2%;" > 
+            @*   <div class="col-md-12">
+            <a style="float: right;" class="btn btn-dark" href="/Book/Add">+ Add more</a>
+             </div>*@
+
+              <form asp-action="SearchRequest" method="get">
+      <div class="form-group" style="padding-top:0%;padding-bottom:2%;">
+          <lable formaction="SearchString" ></lable>
+          <input type="text" style="height:35px;width:175px" name="SearchString" placeholder="Search BookCode"
+              value="@ViewData["CurrentFilter"]"/>
+              <input style="height:35px;width:70px" type="submit" value="Search" class="btn btn-primary" />
+      </div>
+    </form>
+
+            @* <form asp-action="Index" method="get">
+      <div class="form-group" style="padding-top:0%;padding-bottom:2%;">
+          <lable formaction="SearchString" ></lable>
+          <input type="text" style="height:35px;width:175px" name="SearchString" placeholder="Search Title"
+              value="@ViewData["CurrentFilter"]"/>
+              <input style="height:35px;width:70px" type="submit" value="Search" class="btn btn-primary" />
+      </div>
+    </form>*@
+
+            <table class="table table-stripped table-bordered border-dark" style="width:100%">
+                <thead class="table-dark">
+                    <tr>
+                        <th>UserName</th>
+                        <th>Age</th>
+                        <th>AadharNo</th>
+                        <th>Mobile</th>
+                        <th>BookTitle</th>
+                        <th>BookCode</th>
+                        <th>Approval Status</th>
+                        <th>Permission</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                            <tr>
+                                        <td>@item.UserName</td>
+                                        <td>@item.Age</td>
+                                        <td>@item.AadharNo</td>
+                                        <td>@item.Mobile</td>
+                                        <td>@item.BookTitle</td>
+                                        <td>@item.BookCode</td>
+                                        <td>@item.Approval</td>
+                            @* <td>
+                                    <a class="btn btn-success" href=""><i class="bi bi-pen"></i></a> |
+                                    <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href=""><i class="bi bi-trash"></i></a> |
+
+                            </td>*@
+                                      <td>
+                                            <a class="btn btn-success" href="/UserRequest/Update?id=@item.Id">@*<i class="bi bi-pen"></i>*@ Change Status</a>
+                                    </td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+
+    </div>
+</div>
+</div>
+

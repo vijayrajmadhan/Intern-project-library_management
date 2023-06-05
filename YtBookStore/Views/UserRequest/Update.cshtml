@@ -1,0 +1,87 @@
+﻿@model YtBookStore.Models.Domain.TakeBook
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>TakeBook</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" readonly/>
+
+              <div class="form-group">
+                    <label asp-for="Approval"><b>Approval</b></label>
+                    <select asp-for="Approval" asp-for="Approval" class="form-control">
+                        <option value="">---Select---</option>
+                        <option value="Request Approved"><b>Approve</b></option>
+                        <option value="Request Disapproved"><b>Disapprove</b></option>
+                    </select>
+                    <span asp-validation-for="Approval" class="text-danger"></span>
+                </div>
+
+
+              <div class="form-group">
+                  <label asp-for="Date1">Date Created</label>
+                  <input asp-for="Date1" class="form-control" />
+                  <span asp-validation-for="Date1" class="text-danger"></span>
+             </div>
+
+             <div class="form-group">
+                  <label asp-for="Date2">Date Created</label>
+                  <input asp-for="Date2" class="form-control" />
+                  <span asp-validation-for="Date2" class="text-danger"></span>
+             </div>
+
+
+            <div class="form-group">
+                @*<label asp-for="UserName" class="control-label"></label>*@
+                <input type="hidden" asp-for="UserName" class="form-control" readonly/>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Age" class="control-label"></label>*@
+                <input type="hidden" asp-for="Age" class="form-control" readonly/>
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="AadharNo" class="control-label"></label>*@
+                <input type="hidden" asp-for="AadharNo" class="form-control" readonly/>
+                <span asp-validation-for="AadharNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              @*  <label asp-for="Mobile" class="control-label"></label>*@
+                <input type="hidden" asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="BookTitle" class="control-label"></label>*@
+                <input type="hidden" asp-for="BookTitle" class="form-control" readonly/>
+                <span asp-validation-for="BookTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="BookCode" class="control-label"></label>*@
+                <input type="hidden" asp-for="BookCode" class="form-control" readonly/>
+                <span asp-validation-for="BookCode" class="text-danger"></span>
+            </div>
+
+          
+               <div class="space">
+              </div>
+              <div class="space">
+              </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+

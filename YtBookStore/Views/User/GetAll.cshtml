@@ -1,0 +1,87 @@
+﻿@model IEnumerable<YtBookStore.Models.Domain.Book>
+@{
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+ <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        a{
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+       /* body{
+            background:linear-gradient(red,transparent),
+            linear-gradient(to top left,lime,transparent),
+            linear-gradient(to top right,blue,transparent);
+            background-blend-mode:screen;
+        }*/
+        
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+@*<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-dark" href="/Book/Add">+ Add more</a>
+        </div>
+    </div>*@
+ <body>
+    <div class="row">
+        <div class="col-md-12">
+           @* <div align="Center">
+            <h3>ANNA LIBRARY BOOKS AVAILABLE</h3>
+            </div>*@
+
+          
+
+     <form asp-action="Index" method="get">
+      <div class="form-group" style="padding-top:2%;padding-bottom:2%;">
+          <lable formaction="SearchString"></lable>
+          <input type="text" name="SearchString" placeholder="Search Title"
+              value="@ViewData["CurrentFilter"]" />
+               <input style="height:35px;width:70px" type="submit" value="Search" class="btn btn-primary" />
+      </div>
+    </form>
+
+            <table  class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Book Location[Room-Rack]</th>
+                        <th>Total Pages</th>
+                        <th>Author</th>
+                        <th>Publisher</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                                <td>@item.Title</td>
+                                <td>@item.GenreName</td>
+                                <td>@item.Book_Location</td>
+                                <td>@item.TotalPages</td>
+                                <td>@item.AuthorName</td>
+                                <td>@item.PublisherName</td>
+                            @*<td>
+                                    <a class="btn btn-success" href="/Book/Update?id=@item.Id"><i class="bi bi-pen"></i></a> |
+                                    <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Book/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+                            </td>*@
+                            <td>
+                                <a class="btn btn-warning" href="/User/Details?id=@item.Id"><i class="bi bi-eye"></i></a>
+                                  @*  <a class="btn btn-success" href="/User/Takeoff?id=@item.Id"><i class="bi bi-pen"></i></a>*@
+                             </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body> 

@@ -1,0 +1,69 @@
+﻿@model YtBookStore.Models.Domain.TakeBook
+@{
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Request Book</h3>
+            <form asp-action="Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="UserName">UserName *</label>
+                    <input type="text" class="form-control" asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                    <label asp-for="Age">Age *</label>
+                    <input type="number" class="form-control" asp-for="Age" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                    <label asp-for="AadharNo">AadharNo *</label>
+                    <input type="text" class="form-control" asp-for="AadharNo" />
+                    <span asp-validation-for="AadharNo" class="text-danger"></span>
+                </div>
+                
+                 <div class="form-group">
+                    <label asp-for="Mobile">Mobile *</label>
+                    <input type="text" class="form-control" asp-for="Mobile" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BookTitle">BookTitle *</label>
+                    <input type="text" class="form-control" asp-for="BookTitle" />
+                    <span asp-validation-for="BookTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BookCode">BookCode *</label>
+                    <input type="text" class="form-control" asp-for="BookCode" />
+                    <span asp-validation-for="BookCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @*<label asp-for="Approval">Request Status *</label>*@
+                    <input type="hidden" class="form-control" asp-for="Approval" value="Request Pending" readonly/>
+                    <span asp-validation-for="Approval" class="text-danger"></span>
+                </div>
+
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i> Save</button>
+                   @* <a href="/Book/GetAll" class="btn btn-primary"> <i class="bi bi-list"></i>List</a>*@
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
